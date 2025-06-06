@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react";
 import dfs from "vite-plugin-dts";
 import path from "path";
 import tailwindcss from "@tailwindcss/vite";
+import istanbul from "vite-plugin-istanbul";
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -28,6 +29,12 @@ export default defineConfig({
     tailwindcss(),
     react(),
     dfs({ tsconfigPath: "./tsconfig.app.json" }),
+    istanbul({
+      cypress: true,
+      requireEnv: false,
+      include: ["src/**/*.ts", "src/**/*.tsx"],
+      exclude: ["node_modules", "cypress/"],
+    }),
   ],
   server: {
     port: 4000,

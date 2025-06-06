@@ -26,4 +26,7 @@ dist-ssr
 *storybook.log
 storybook-static
 
+cypress/videos
 cypress/reports
+
+coverage/
