@@ -24,6 +24,14 @@ export default defineConfig({
       },
     },
     specPattern: "cypress/component/*.cy.{ts,tsx}",
+    reporter: "cypress-mochawesome-reporter",
+    setupNodeEvents(on, config) {
+      // 컴포넌트 테스트 결과 보고서
+      mochaReporter(on);
+      // 코드 커버리지 결과 보고서
+      registerCodeCoverageTasks(on, config);
+      return config;
+    },
   },
   e2e: {
     video: true,
@@ -31,12 +39,10 @@ export default defineConfig({
     baseUrl: "http://localhost:4000",
     reporter: "cypress-mochawesome-reporter",
     setupNodeEvents(on, config) {
-      console.log("결과보고서 생성 시작");
       // e2e 결과 보고서
       mochaReporter(on);
       // 코드 커버리지 결과 보고서
       registerCodeCoverageTasks(on, config);
-      console.log("결과보고서 생성 종료");
       return config;
     },
   },

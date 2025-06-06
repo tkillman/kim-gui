@@ -11,7 +11,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "cy:open": "yarn cypress open",
-    "cy:run": "yarn cypress run"
+    "cy:run": "yarn cypress run --browser chrome",
+    "cy:run:cp": "yarn cypress run --component"
   },
   "dependencies": {
     "react": "^18.3.1",
