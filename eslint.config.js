@@ -25,5 +25,6 @@ export default tseslint.config({ ignores: ['dist'] }, {
       { allowConstantExport: true },
     ],
     "@typescript-eslint/no-unused-vars" : "warn",
+    '@typescript-eslint/no-namespace': 'warn',
   },
 }, storybook.configs["flat/recommended"]);
