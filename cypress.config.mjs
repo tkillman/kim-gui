@@ -1,6 +1,7 @@
 import { defineConfig } from "cypress";
 import { devServer } from "@cypress/vite-dev-server";
 import { loadConfigFromFile } from "vite";
+import mochaReporter from "cypress-mochawesome-reporter/plugin";
 
 export default defineConfig({
   component: {
@@ -20,8 +21,10 @@ export default defineConfig({
 
   e2e: {
     baseUrl: "http://localhost:4000",
+    reporter: "cypress-mochawesome-reporter",
     setupNodeEvents(on, config) {
       // implement node event listeners here
+      mochaReporter(on);
     },
   },
 });
