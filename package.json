@@ -7,7 +7,6 @@
   "author": "",
   "source": "src/index.ts",
   "main": "dist/index.js",
-  "module": "dist/index.module.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
@@ -16,9 +15,6 @@
     "type": "git",
     "url": "https://github.com/tkillman/kim-gui.git"
   },
-  "publishConfig": {
-    "@scope:registry": "https://npm.pkg.github.com"
-  },
   "scripts": {
     "build": "tsc --build"
   },
@@ -26,7 +22,6 @@
     "typescript": "^5.8.3"
   },
   "bugs": {
-    "###": "버그리포팅",
     "url": "https://github.com/tkillman/issues",
     "email": "dkkim1004@hanmail.net"
   },
