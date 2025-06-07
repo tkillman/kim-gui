@@ -4,6 +4,7 @@ import dfs from "vite-plugin-dts";
 import path from "path";
 import tailwindcss from "@tailwindcss/vite";
 import istanbul from "vite-plugin-istanbul";
+import flowbiteReact from "flowbite-react/plugin/vite";
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -35,6 +36,7 @@ export default defineConfig({
       include: ["src/**/*.ts", "src/**/*.tsx"],
       exclude: ["node_modules", "cypress/"],
     }),
+    flowbiteReact()
   ],
   server: {
     port: 4000,
