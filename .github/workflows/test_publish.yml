@@ -1,4 +1,4 @@
-name: Cypress Component Tests
+name: 테스트 및 배포
 
 env:
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
