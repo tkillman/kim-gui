@@ -1,5 +1,6 @@
 import { useEffect, useState, type FC } from "react";
 import { Button, ToggleSwitch, TextInput, Select } from "flowbite-react";
+import "~/src/index.css";
 
 type CaseInfo = {
   label: string;
