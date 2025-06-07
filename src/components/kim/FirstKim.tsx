@@ -72,6 +72,8 @@ const FirstKim: FC<FirstKimProps> = ({
                   JSON.stringify({ isAllOn: false })
                 );
               }
+
+              window.location.reload();
             }}
           />
         </div>
