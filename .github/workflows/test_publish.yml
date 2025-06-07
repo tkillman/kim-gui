@@ -50,13 +50,9 @@ jobs:
 
       - name: Set up .npmrc
         run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Test login
         run: npm whoami
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Build package
         run: yarn build
