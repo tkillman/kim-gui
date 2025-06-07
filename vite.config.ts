@@ -36,8 +36,13 @@ export default defineConfig({
       include: ["src/**/*.ts", "src/**/*.tsx"],
       exclude: ["node_modules", "cypress/"],
     }),
-    flowbiteReact()
+    flowbiteReact(),
   ],
+  resolve: {
+    alias: {
+      "~/src": path.resolve(__dirname, "src"),
+    },
+  },
   server: {
     port: 4000,
   },

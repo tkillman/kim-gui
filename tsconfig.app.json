@@ -24,7 +24,11 @@
 
     /* custom */
     "declaration": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "~/src/*": ["src/*"]
+    }
   },
   "include": ["src"],
   "exclude": ["src/stories"]
