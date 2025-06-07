@@ -37,8 +37,29 @@ jobs:
       packages: write
 
     steps:
-    - shell: bash
-      env:
-        SUPER_SECRET: ${{ secrets.SuperSecret }}
-      run: |
-        example-command "$SUPER_SECRET"
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Set up .npmrc
+        run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Test login
+        run: npm whoami
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Build package
+        run: yarn build
+
+      - name: Publish to npm
+        run: npm publish
