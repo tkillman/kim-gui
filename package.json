@@ -12,9 +12,11 @@
     "build-storybook": "storybook build",
     "cy:open": "yarn cypress open",
     "cy:run": "yarn cypress run --browser chrome",
-    "cy:run:cp": "yarn cypress run --component"
+    "cy:run:cp": "yarn cypress run --component",
+    "postinstall": "flowbite-react patch"
   },
   "dependencies": {
+    "flowbite-react": "^0.11.7",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
