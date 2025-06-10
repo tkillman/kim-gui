@@ -38,18 +38,18 @@ const FirstKim: FC<FirstKimProps> = ({
 }) => {
   const [isAllChecked, setIsAllChecked] = useState(false);
 
-  useEffect(() => {
-    const storedData = localStorage.getItem("mock-gui-storage");
-    if (storedData) {
-      const parsedData = JSON.parse(storedData);
-      setIsAllChecked(parsedData.isAllOn || false);
-    } else {
-      localStorage.setItem(
-        "mock-gui-storage",
-        JSON.stringify({ isAllOn: false })
-      );
-    }
-  }, []);
+  // useEffect(() => {
+  //   const storedData = localStorage.getItem("mock-gui-storage");
+  //   if (storedData) {
+  //     const parsedData = JSON.parse(storedData);
+  //     setIsAllChecked(parsedData.isAllOn || false);
+  //   } else {
+  //     localStorage.setItem(
+  //       "mock-gui-storage",
+  //       JSON.stringify({ isAllOn: false })
+  //     );
+  //   }
+  // }, []);
 
   return (
     <div className="fixed bottom-0 right-0 bg-black shadow-md text-white">
@@ -81,7 +81,7 @@ const FirstKim: FC<FirstKimProps> = ({
                 );
                 worker.stop();
               }
-
+              setIsAllChecked(checked);
               window.location.reload();
             }}
           />
