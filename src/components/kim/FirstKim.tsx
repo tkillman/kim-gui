@@ -1,6 +1,8 @@
 import { useEffect, useState, type FC } from "react";
 import { Button, ToggleSwitch, TextInput, Select } from "flowbite-react";
 import "~/src/index.css";
+import type { SetupWorker } from "msw/browser";
+import type { HttpHandler } from "msw";
 
 type CaseInfo = {
   label: string;
@@ -22,6 +24,8 @@ interface FirstKimProps {
     [key: string]: { isOn: boolean; selectedCase: "default" | string };
   };
   onChangeSelectCase: (apiPath: string, selectedCase: string) => void;
+  worker: SetupWorker;
+  handlers: HttpHandler[];
 }
 
 const FirstKim: FC<FirstKimProps> = ({
@@ -29,6 +33,8 @@ const FirstKim: FC<FirstKimProps> = ({
   mocks,
   cases,
   onChangeSelectCase,
+  worker,
+  //handlers,
 }) => {
   const [isAllChecked, setIsAllChecked] = useState(false);
 
@@ -66,11 +72,14 @@ const FirstKim: FC<FirstKimProps> = ({
                   "mock-gui-storage",
                   JSON.stringify({ isAllOn: true })
                 );
+                console.log("All mocks enabled");
+                worker.start();
               } else {
                 localStorage.setItem(
                   "mock-gui-storage",
                   JSON.stringify({ isAllOn: false })
                 );
+                worker.stop();
               }
 
               window.location.reload();
