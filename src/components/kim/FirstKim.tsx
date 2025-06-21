@@ -1,4 +1,4 @@
-import { useEffect, useState, type FC } from "react";
+import { useState, type FC } from "react";
 import { Button, ToggleSwitch, TextInput, Select } from "flowbite-react";
 import "~/src/index.css";
 import type { SetupWorker } from "msw/browser";
